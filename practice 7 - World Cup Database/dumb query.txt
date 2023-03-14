@@ -1,0 +1,2 @@
+echo -e "\nList of teams who played in the 2014 'Eighth-Final' round:"
+echo  "$($PSQL "SELECT DISTINCT w.name, o.name FROM games AS a INNER JOIN teams as w on a.winner_id = w.team_id INNER JOIN teams as o on a.opponent_id = o.team_id WHERE year=2014 AND round='Eighth-Final' ORDER BY w.name, o.name")"
